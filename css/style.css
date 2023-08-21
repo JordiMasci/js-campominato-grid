@@ -15,13 +15,25 @@
 }
 
 .cell {
-    width: calc(100% / 10);
+   
     aspect-ratio: 1;
     background-color: yellowgreen;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cell10{
+    width: calc(100% / 10);
+}
+
+.cell9{
+    width: calc(100% / 9);
+}
+
+.cell7{
+    width: calc(100% / 7);
 }
 
 .azure {

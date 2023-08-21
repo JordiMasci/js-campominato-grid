@@ -23,30 +23,46 @@ in cosole con il nukero della cella cliccata:
 
 //   prendo pulsante
 const button = document.getElementById("pulsante");
-const grid = document.getElementById('griglia');
+const grid = document.getElementById("griglia");
 
-// creo evento al click 
+// creo evento al click
 button.addEventListener("click", function () {
   generaGriglia();
 });
 
+const livello = document.getElementById("select");
+
 // creo funzione da avviare con il click
-function generaGriglia(){
+function generaGriglia() {
 
-    for (let index = 1; index <= 100; index++ ){
-        // creo una cella
-        const cell = document.createElement('div');
-        // creo una classe
-        cell.classList.add('cell');
-        // inserisco i vari index in HTML
-        cell.innerHTML = index;
-        // aggiungo la classe con il click che fa cambiare colore
-        cell.addEventListener('click', function(){
-            cell.classList.add('azure');
-            console.log(index);
-        })
+    let size;
+  if (livello.value == 1) {
+    size = 10 * 10;
+  } else if (livello.value == 2) {
+    size = 9 * 9;
+  } else {
+    size = 7 * 7;
+  }
+  for (let index = 1; index <= size; index++) {
+    // creo una cella
+    const cell = document.createElement("div");
+    // creo una classe
+    cell.classList.add("cell");
+    if (livello.value == 1) {
+       cell.classList.add('cell10');
+      } else if (livello.value == 2) {
+        cell.classList.add('cell9');
+      } else {
+        cell.classList.add('cell7');
+      }
+    // inserisco i vari index in HTML
+    cell.innerHTML = index;
+    // aggiungo la classe con il click che fa cambiare colore
+    cell.addEventListener("click", function () {
+      cell.classList.add("azure");
+      console.log(index);
+    });
 
-        grid.append(cell);
-    }
-
+    grid.append(cell);
+  }
 }
